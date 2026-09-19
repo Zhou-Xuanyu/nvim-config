@@ -1,7 +1,7 @@
 -- remap.lua
 -- this file stores the remap related to vim native commands
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
 
 vim.keymap.set("n", "<leader>l", vim.cmd.Ex)
 

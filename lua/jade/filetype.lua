@@ -31,3 +31,25 @@ vim.api.nvim_create_autocmd('FileType', {
         end, { buffer = true })
     end,
 })
+
+-- Use 2-space indentation for C/C++ files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp" },
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.expandtab = true
+    end,
+})
+
+-- Use 2-space indentation for Clojure files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "clojure" },
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.expandtab = true
+    end,
+})

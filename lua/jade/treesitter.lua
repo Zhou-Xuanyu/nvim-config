@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd('FileType', {
         'javascript',
         'typescript',
         'latex',
+        'clojure',
     },
     callback = function() vim.treesitter.start() end,
 })
