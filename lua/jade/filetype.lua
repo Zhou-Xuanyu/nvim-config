@@ -32,10 +32,13 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
--- Use 2-space indentation for C/C++ files
+-- Use 2-space indentation for C/C++ files (except cs225, which uses 4 via .editorconfig)
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "c", "cpp" },
     callback = function()
+        if vim.api.nvim_buf_get_name(0):find("/uiuc/cs225/cs225git/", 1, true) then
+            return
+        end
         vim.opt_local.tabstop = 2
         vim.opt_local.softtabstop = 2
         vim.opt_local.shiftwidth = 2

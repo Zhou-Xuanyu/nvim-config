@@ -1,7 +1,8 @@
 return {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
-    config = true
-    -- use opts = {} for passing setup options
-    -- this is equivalent to setup({}) function
+    opts = {
+        -- paredit owns pair handling in lisps; both at once double-inserts
+        disable_filetype = { "clojure", "fennel", "scheme", "lisp" },
+    },
 }
