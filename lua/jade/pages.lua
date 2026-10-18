@@ -60,4 +60,4 @@ local function open_monthly_noise()
     insert_markdown_h2_date()
 end
 
-vim.keymap.set("n", "<leader>pn", open_monthly_noise, { desc = "Open daily log" })
+vim.keymap.set("n", "<leader>pn", open_monthly_noise, { desc = "Open monthly noise" })

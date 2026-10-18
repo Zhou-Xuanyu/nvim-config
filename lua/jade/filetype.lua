@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd('FileType', {
                 '--forward-search-line', tostring(line),
                 pdf
             })
-        end, { buffer = true })
+        end, { buffer = true, desc = 'Forward search in Sioyek' })
     end,
 })
 

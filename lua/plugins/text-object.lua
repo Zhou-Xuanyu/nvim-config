@@ -16,7 +16,7 @@ return {
         -- for movement [[]][]][
         local move = require("nvim-treesitter-textobjects.move")
 
-        local function map(key, dir, query)
+        local function map(key, dir, query, desc)
             local fn = ({
                 next_start = "goto_next_start",
                 next_end   = "goto_next_end",
@@ -25,24 +25,24 @@ return {
             })[dir]
             vim.keymap.set({ "n", "x", "o" }, key, function()
                 move[fn](query, "textobjects")
-            end)
+            end, { desc = desc })
         end
 
         -- f = function, c = class, p = parameter, l = loop, i = conditional
-        map("]]", "next_start", { "@function.outer", "@class.outer" })
-        map("[[", "prev_start", { "@function.outer", "@class.outer" })
-        map("][", "next_end", { "@function.outer", "@class.outer" })
-        map("[]", "prev_end", { "@function.outer", "@class.outer" })
+        map("]]", "next_start", { "@function.outer", "@class.outer" }, "Next function/class start")
+        map("[[", "prev_start", { "@function.outer", "@class.outer" }, "Previous function/class start")
+        map("][", "next_end", { "@function.outer", "@class.outer" }, "Next function/class end")
+        map("[]", "prev_end", { "@function.outer", "@class.outer" }, "Previous function/class end")
 
-        map("]f", "next_start", "@function.outer")
-        map("[f", "prev_start", "@function.outer")
-        map("]c", "next_start", "@class.outer")
-        map("[c", "prev_start", "@class.outer")
-        map("]p", "next_start", "@parameter.inner")
-        map("[p", "prev_start", "@parameter.inner")
-        map("]l", "next_start", "@loop.outer")
-        map("[l", "prev_start", "@loop.outer")
-        map("]i", "next_start", "@conditional.outer")
-        map("[i", "prev_start", "@conditional.outer")
+        map("]f", "next_start", "@function.outer", "Next function start")
+        map("[f", "prev_start", "@function.outer", "Previous function start")
+        map("]c", "next_start", "@class.outer", "Next class start")
+        map("[c", "prev_start", "@class.outer", "Previous class start")
+        map("]p", "next_start", "@parameter.inner", "Next parameter start")
+        map("[p", "prev_start", "@parameter.inner", "Previous parameter start")
+        map("]l", "next_start", "@loop.outer", "Next loop start")
+        map("[l", "prev_start", "@loop.outer", "Previous loop start")
+        map("]i", "next_start", "@conditional.outer", "Next conditional start")
+        map("[i", "prev_start", "@conditional.outer", "Previous conditional start")
     end,
 }

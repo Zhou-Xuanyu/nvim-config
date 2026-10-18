@@ -34,3 +34,6 @@ vim.o.signcolumn = "yes"
 vim.o.updatetime = 50
 vim.o.clipboard = "unnamedplus"
 vim.o.laststatus = 0
+
+-- load per-project .nvim.lua (asks before trusting a new/changed file)
+vim.o.exrc = true

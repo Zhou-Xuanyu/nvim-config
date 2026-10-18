@@ -76,4 +76,4 @@ end
 
 vim.keymap.set("n", "<leader>jm", open_mirror_file, { desc = "Open mirror" })
 vim.keymap.set("n", "<leader>jl", open_daily_log, { desc = "Open daily log" })
-vim.keymap.set("n", "<leader>jt", open_todo_file, { desc = "Open daily log" })
+vim.keymap.set("n", "<leader>jt", open_todo_file, { desc = "Open todo file" })
