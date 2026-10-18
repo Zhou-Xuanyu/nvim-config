@@ -1,13 +1,16 @@
 -- pages
 -- short cut for editing pages
 -- pages is my personal website
--- source code are in ~/pages
+-- source code are in ~/Documents/pages
 --
--- <leader>pn to open ~/pages/src/noise/YYYYMM.md 
+-- <leader>pn to open ~/Documents/pages/src/noise/YYYYMM.md 
 -- file name is current date, if non-exist create it
 -- if exist, insert h2 header at the very top after meta data
 -- Create new daily log file if it doesn't exist
 --
+
+-- root folder of pages; change this if the folder moves
+local pages_root = vim.fn.expand("~/Documents/pages")
 
 local function create_new_noise_file(file_path)
     if vim.fn.filereadable(file_path) == 0 then
@@ -41,7 +44,7 @@ end
 
 -- Open daily log file
 local function open_monthly_noise()
-    local log_dir = vim.fn.expand("~/pages/src/noise/")
+    local log_dir = pages_root .. "/src/noise"
     local month = os.date("%Y-%m")
     local file_path = log_dir .. "/" .. month .. ".md"
 

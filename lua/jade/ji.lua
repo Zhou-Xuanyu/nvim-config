@@ -6,6 +6,9 @@
 -- leader jt to open the todo.md file
 -- leader jm to open the mirror (monthly)
 
+-- root folder of ji; change this if the folder moves
+local ji_root = vim.fn.expand("~/Documents/ji")
+
 -- Create new daily log file if it doesn't exist
 local function create_new_log_file(file_path, date)
     if vim.fn.filereadable(file_path) == 0 then
@@ -24,7 +27,7 @@ end
 
 -- Open daily log file
 local function open_daily_log()
-    local log_dir = vim.fn.expand("~/ji/log")
+    local log_dir = ji_root .. "/log"
     local date = os.date("%Y-%m-%d")
     local file_path = log_dir .. "/" .. date .. ".md"
 
@@ -42,7 +45,7 @@ local function open_daily_log()
 end
 
 local function open_todo_file()
-    local file_path = vim.fn.expand("~/ji/todo.md")
+    local file_path = ji_root .. "/todo.md"
     vim.cmd("edit " .. file_path)
 end
 
@@ -57,7 +60,7 @@ end
 
 -- Open mirror file
 local function open_mirror_file()
-    local mirror_dir = vim.fn.expand("~/ji/mirror")
+    local mirror_dir = ji_root .. "/mirror"
     local year_month = os.date("%Y%m")
     local file_path = mirror_dir .. "/" .. year_month .. ".md"
 
