@@ -2,14 +2,16 @@ return {
     "stevearc/oil.nvim",
     -- Not lazy: it replaces netrw, so `nvim .` and `:e dir/` open oil.
     lazy = false,
+    dependencies = {
+        { "echasnovski/mini.icons", opts = {} },
+    },
     keys = {
         -- { "-", "<cmd>Oil<cr>", desc = "Open parent directory (oil)" },
         { "<leader>l", "<cmd>Oil<cr>", desc = "Open file explorer (oil)" },
     },
     opts = {
         default_file_explorer = true,
-        -- No icon plugin installed; show permissions and size instead.
-        columns = { "permissions", "size" },
+        columns = { "icon", "permissions", "size" },
         view_options = { show_hidden = true },
         -- Preview follows 'splitright' (off), which puts it on the left.
         keymaps = {
